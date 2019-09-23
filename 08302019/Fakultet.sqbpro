@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Medjed/Downloads/Fakultet.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="831"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,8:mainFakultet"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Fakultet" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Student" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">--Resenje 1. zadatka
+SELECT *
+from Fakultet
+
+--Resenje 2. zadatka
+SELECT Naziv
+FROM Fakultet
+WHERE &quot;Drzavni/Privatni&quot; = 'P'
+
+--Resenje 3. zadatka
+SELECT count (&quot;Drzavni/Privatni&quot;)
+FROM Fakultet
+WHERE &quot;Drzavni/Privatni&quot; = 'D'
+
+--Resenje 4. zadatka
+SELECT avg(BrojStudenata)
+FROM Fakultet
+
+--Resenje 5. zadatka
+SELECT avg(BrojStudenata)
+FROM Fakultet
+WHERE &quot;Drzavni/Privatni&quot; = 'D'
+
+--Resenje 6. zadatka
+SELECT DISTINCT Grad
+FROM Fakultet
+
+--Resenje 7. zadatka
+SELECT sum(BrojStudenata)
+FROM Fakultet
+
+--Resenje 8. zadatka
+SELECT  Ime, Prezime
+FROM Student
+
+--Resenje 9. zadatka
+SELECT *
+FROM Student
+WHERE GodinaStudija = 3
+
+--Resenje 10. zadatka
+SELECT *,  max(Prosek)
+FROM Student
+
+--Resenje 11. zadatka
+SELECT *, max(Prosek)
+FROM Student
+WHERE GodinaStudija = 3
+
+--Resenje 12. zadatka
+SELECT avg(Prosek)
+FROM Student
+WHERE GodinaStudija = 4
+
+--Resenje 13. zadatka
+SELECT avg(Prosek)
+FROM Student
+WHERE Pol = 'M'
+
+--Resenje 14. zadatka
+SELECT *
+FROM Student
+WHERE Prosek is NULL
+
+--Resenje 15. zadatka
+SELECT *
+FROM Student
+WHERE Prosek NOT NULL
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Medjed/Desktop/ProdajaAutomobila.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1012"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,8:mainNabavaka"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Automobil" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Dobavljac" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Kupac" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Kupovina" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Model" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Nabavaka" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">INSERT INTO Model (Marka, Model, BrProdatih, BrNabavljenih, Profit)
+VALUES (&quot;BMW&quot;, &quot;X6&quot;, 10, 20, 10000),
+       (&quot;BMW&quot;, &quot;X7&quot;, 5, 12, 14000),
+       (&quot;Audi&quot;, &quot;A8&quot;, 4, 10, 20000),
+       (&quot;Audi&quot;, &quot;A4&quot;, 6, 15, 15000),
+       (&quot;Lada&quot;, &quot;Niva&quot;, 20, 50, 10000),
+       (&quot;Yugo&quot;, &quot;Coral 45&quot;, 50, 100, 12000);
+
+INSERT INTO Kupac (Ime,Prezime, BrLK, BrKupljenih)
+VALUES (&quot;Zoran&quot;, &quot;Milicevic&quot;, 12345678, 2),
+       (&quot;Cvijan&quot;, &quot;Peranovic&quot;, 12345678, 1),
+	   (&quot;Ivana&quot;, &quot;Stepanovic&quot;, 12345678, 1),
+	   (&quot;Dusan&quot;, &quot;Bobicic&quot;, 12345678, 1);
+
+INSERT INTO Dobavljac (Naziv, BrDobavljenih)
+VALUES (&quot;YugoNotors&quot;, 30),
+       (&quot;SerbiaCarlmport)&quot;, 20),
+	   (&quot;BelgradeImport&quot;, 10);
+	   
+INSERT INTO Automobil (RegBr, IdM)
+VALUES (12345, 2),
+       (42512, 2),
+	   (56216, 3),
+	   (96216, 3),
+	   (95816, 4),
+	   (05816, 4),
+	   (35856, 5),
+	   (37356, 5),
+	   (37379, 6),
+	   (67379, 6),
+	   (65379, 7),
+	   (24373, 7);
+
+INSERT INTO Kupovina (IdK, IdA, DatumVreme, Cena)
+VALUES (1, 7, 23062018, 40000),
+       (1, 6, 14042018, 70000),
+	   (3, 2, 15062017, 25000),
+	   (2, 11, 12022015, 300),
+	   (4, 9, 13032016, 8000);
+	   
+INSERT INTO Nabavaka (IdA, IdD, DatumVreme, Cena)
+VALUES (5, 3, 112010, 30000),
+       (6, 3, 112010, 30000),
+	   (7, 3, 112010, 30000),
+	   (8, 3, 112010, 30000),
+	   (9, 1, 122000, 4000),
+	   (10, 1, 122000, 4000),
+	   (11, 1, 122000, 4000),
+	   (12, 1, 122000, 4000),
+	   (1, 2, 112013, 20000),
+	   (2, 2, 112013, 20000),
+	   (3, 2, 112013, 20000),
+	   (4, 2, 112013, 20000);
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

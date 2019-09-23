@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Medjed/Downloads/studentskabaza.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2201"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,5:mainispit"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="dosije" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="ispit" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="ispitni_rok" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="predmet" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">
+--Zadatak 1
+SELECT *
+FROM predmet
+
+--Zadatak 2
+SELECT *
+FROM dosije
+WHERE mesto_rodjenja = &quot;Beograd&quot;
+
+--Zadatak 3
+SELECT dosije.mesto_rodjenja
+FROM dosije
+WHERE dosije.mesto_rodjenja IS NOT NULL
+
+--Zadatak 4
+SELECT predmet.naziv
+FROM predmet
+WHERE predmet.bodovi &gt; 6
+
+--Zadatak 5
+SELECT predmet.sifra, predmet.naziv
+FROM predmet
+WHERE predmet.bodovi BETWEEN 8 AND 15
+
+--Zadatak 6
+SELECT *
+FROM ispit
+WHERE ispit.bodovi = 81 OR ispit.bodovi = 76 OR ispit.bodovi = 59
+
+--Zadatak 7
+SELECT *
+FROM ispit
+WHERE NOT ispit.bodovi = 81 AND NOT ispit.bodovi = 76 AND NOT ispit.bodovi = 59
+
+--Zadatak 8 
+SELECT predmet.naziv, predmet.bodovi * 1500 as &quot;Cena&quot;,
+FROM predmet
+
+--Zadatak 9
+SELECT predmet.naziv,'Cena u dinarima' as &quot; &quot;, predmet.bodovi * 1500 as &quot;Cena&quot;
+FROM predmet
+
+--Zadatak 10
+SELECT *
+FROM predmet
+ORDER BY predmet.bodovi ASC
+
+SELECT *
+FROM predmet
+ORDER BY predmet.bodovi DESC
+
+SELECT *
+FROM predmet
+ORDER BY predmet.bodovi ASC , predmet.naziv DESC
+
+--Zadatak 11
+SELECT dosije.ime, dosije.prezime, dosije.datum_rodjenja
+FROM dosije
+WHERE dosije.datum_rodjenja BETWEEN '04/02/1995' AND '10/10/1995'
+
+--Zadatak 12
+SELECT DISTINCT ispit.oznaka_roka, count(ispit.ocena) as &quot;Br polozenih ispita)&quot;, count(ispit.indeks)as &quot;Br Studenata&quot;
+FROM ispit
+WHERE ispit.ocena &gt; 5
+GROUP BY ispit.oznaka_roka
+
+--Zadatak 13
+SELECT dosije.ime, dosije.prezime
+FROM dosije, ispit
+WHERE ispit.id_predmeta = 1001 AND ispit.oznaka_roka = &quot;jan&quot; AND ispit.ocena &gt; 5 AND dosije.indeks = ispit.indeks
+
+--Zadatak 14
+SELECT avg(ispit.bodovi)
+FROM ispit
+WHERE ispit.id_predmeta = 1021 AND NOT ispit.oznaka_roka = &quot;apr&quot;
+
+--Zadatak 15
+SELECT count(DISTINCT ispit.indeks)
+FROM ispit
+WHERE ispit.ocena &gt; 5
+
+--Zadatak 16
+SELECT avg(ispit.bodovi)
+FROM ispit
+WHERE ispit.indeks = 20130023
+
+--Zadatak 17
+SELECT avg(ispit.bodovi)
+FROM ispit
+WHERE ispit.oznaka_roka = &quot;jan&quot;
+
+--Zadatak 18
+SELECT predmet.naziv
+FROM predmet, ispit
+WHERE predmet.bodovi = 6 AND predmet.id_predmeta = ispit.id_predmeta AND ispit.oznaka_roka = &quot;jan&quot;
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

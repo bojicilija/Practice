@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Medjed/Downloads/Fakultet (1).db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="3837"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,8:mainRaspored"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="Kurs" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="0"/></sort><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Odsek" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Pohadja" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Preduslov" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Profesor" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Raspored" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Student" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="Ucionica" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths/><filter_values/><conditional_formats/><display_formats/><hidden_columns/><plot_y_axes/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT Odsek.Naziv, count(*) as BrojKurseva
+FROM Odsek, Kurs
+WHERE Odsek.SifO = Kurs.SifO
+GROUP BY Odsek.SifO
+
+--Zadatak 2
+SELECT Kurs.Naziv
+FROM Kurs,Pohadja,Raspored
+WHERE Pohadja.SifR = Raspored.SifR AND Raspored.SifK = Kurs.SifK
+GROUP BY Kurs.SifK
+HAVING count(Pohadja.SifR = Raspored.SifR) &gt; 3
+
+--Zadatk 3
+SELECT sum(Raspored.BrPrijaveljenih) / count(Raspored.SifK)
+FROM Raspored, Kurs
+
+--Zadatak 4
+SELECT Kurs.Naziv
+FROM Kurs,Pohadja,Raspored
+WHERE Pohadja.SifS = 1 AND Pohadja.SifR = Raspored.SifR AND Raspored.SifK = Kurs.SifK
+GROUP BY Kurs.SifK
+
+--Zadatak 5
+SELECT Student.Ime
+FROM Kurs,Pohadja,Raspored,Student
+WHERE Pohadja.SifR = Raspored.SifR AND Raspored.SifK = Kurs.SifK AND   Pohadja.SifS = Student.SifS
+GROUP BY Student.SifS
+HAVING count(Pohadja.SifR = Raspored.SifR) &gt; 2
+
+--Zadatak 6
+SELECT DISTINCT Student.Ime
+FROM Student, Pohadja, Raspored
+WHERE Pohadja.SifR = Raspored.SifR AND Pohadja.SifS = Student.SifS AND Raspored.SifU = 111 AND Raspored.Dan = 'Pon'
+
+--Zadatak 7
+SELECT kurs.Naziv, max(Raspored.BrPrijaveljenih)
+FROM Kurs, Profesor, Raspored
+WHERE Raspored.SifP = 7 AND Raspored.SifK = Kurs.SifK
+GROUP BY Kurs.SifK
+HAVING max(Raspored.BrPrijaveljenih)
+
+--Zadatak 8
+SELECT Kurs.Naziv
+FROM Kurs, Preduslov
+WHERE Preduslov.SifK = 4 AND Kurs.SifK = Preduslov.SifKP
+
+--Zadatak 9
+SELECT Kurs.Naziv
+FROM kurs,Preduslov
+WHERE Kurs.SifK = Preduslov.SifK 
+
+--Zadatak 10
+SELECT Profesor.Ime, Raspored.BrPrijaveljenih
+FROM Raspored, Profesor
+WHERE Profesor.SifP = Raspored.SifP AND Raspored.Dan = 'Pon'
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
