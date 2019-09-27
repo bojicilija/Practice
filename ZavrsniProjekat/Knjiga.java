@@ -103,7 +103,7 @@ public class Knjiga {
 				}
 			}
 		}
-		return null;
+		return najcReci;
 	}
 
 	public void dodajReciUFajl(HashMap<String, Integer> reciURecniku) {
